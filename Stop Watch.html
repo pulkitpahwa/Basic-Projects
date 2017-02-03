@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Stop Watch</title>
+  </head>
+  <body onload = "time();">
+    <p id = "currentTime"></p>
+    <input type = "button" value = "Record Time" onclick = "recTime();"/>
+    <div id = "record"></div>
+
+
+<script>
+function time() {
+  var d = new Date();
+  var h = d.getHours();
+  var m = d.getMinutes();
+  var s = d.getSeconds();
+  document.getElementById("currentTime").innerHTML = h + ":" + m + ":" + s;
+}
+setInterval(time ,1000);
+
+function recTime() {
+/*Records the time as the buttion is pressed
+  and displayed on the screen*/
+
+  var timeString = document.getElementById("currentTime").innerHTML;
+  var node = document.createElement("p"); 
+  document.getElementById("record").appendChild(node).innerHTML = timeString;
+}
+</script>
+</body>
+</html>
